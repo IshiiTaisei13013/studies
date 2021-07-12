@@ -11,7 +11,7 @@ public class main {
         Yen.ShowCoins();
 
         Yen.GetCount();
-
+        Yen.GetDetail();
 
         Yen.GetAmount();
 

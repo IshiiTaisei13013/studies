@@ -32,11 +32,21 @@ public class CoinCase {
     //コイン全部を表示する関数
     public void GetCount(){
         int total = 0;
-        for (int i;i<Coins.length;i++){
+        for (int i=0;i<Coins.length;i++){
             total += Coins[i];
         }
     }
+    public void GetDetail(){
+        int[] SubTotal = new int[6];
 
+        for(int i = 0;i<Coins.length;i++){
+            while(Coins[i] > 0){
+                SubTotal[i] += map.get(i);
+                Coins[i]--;
+            }
+        }
+        System.out.println(SubTotal.toString());
+    }
     public void GetAmount(){
         int total = 0;
 
@@ -47,6 +57,5 @@ public class CoinCase {
             }
         }
         System.out.println(total);
-//        return total;
     }
 }
