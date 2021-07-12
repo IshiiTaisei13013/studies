@@ -37,6 +37,8 @@ public class CoinCase {
             total += Coins[i];
         }
     }
+
+    //ケースに入っているコインの種類と金額を表示
     public void GetDetail(){
         int[] SubTotal = new int[6];
 
@@ -47,8 +49,9 @@ public class CoinCase {
             }
             System.out.println(map.get(i) + ":" + SubTotal[i]);
         }
-        //System.out.println(Arrays.toString(SubTotal));
     }
+
+    //コインケース内の合計金額を表示
     public void GetAmount(){
         int total = 0;
 
