@@ -30,9 +30,11 @@ public class CoinCase {
     }
 
     //コイン全部を表示する関数
-    public void GetCount(int order){
-        System.out.println(Coins[order]);
-//        return Coins[order];
+    public void GetCount(){
+        int total = 0;
+        for (int i;i<Coins.length;i++){
+            total += Coins[i];
+        }
     }
 
     public void GetAmount(){

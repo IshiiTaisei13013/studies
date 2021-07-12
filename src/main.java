@@ -10,7 +10,7 @@ public class main {
 
         Yen.ShowCoins();
 
-        Yen.GetCount(1);
+        Yen.GetCount();
 
 
         Yen.GetAmount();
