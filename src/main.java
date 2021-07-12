@@ -1,7 +1,7 @@
 public class main {
     public static void main(String args[]){
-        Dog dog1 = new Dog();
-        Dog dog2 = new Dog();
+        Dog dog1 = new Dog("ボーダーコリー");
+        Dog dog2 = new Dog("ダルメシアン");
         String name = "AA";
         int age = 2;
 
