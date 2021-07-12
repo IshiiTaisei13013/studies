@@ -4,9 +4,10 @@ import java.util.Map;
 public class CoinCase {
 
     private int[] Coins = new int[6];
-    private Map<Integer,Integer> map = new HashMap<>();
+    private static final Map<Integer,Integer> map;
 
-    public CoinCase(){
+    static {
+        map = new HashMap<>();
         //最初にコインを定義
         map.put(0,1);
         map.put(1,5);
