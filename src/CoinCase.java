@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,8 +45,9 @@ public class CoinCase {
                 SubTotal[i] += map.get(i);
                 Coins[i]--;
             }
+            System.out.println(map.get(i) + ":" + SubTotal[i]);
         }
-        System.out.println(SubTotal.toString());
+        //System.out.println(Arrays.toString(SubTotal));
     }
     public void GetAmount(){
         int total = 0;
