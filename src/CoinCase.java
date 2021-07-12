@@ -56,10 +56,7 @@ public class CoinCase {
         int total = 0;
 
         for(int i = 0;i<Coins.length;i++){
-            while(Coins[i] > 0){
-                total += map.get(i);
-                Coins[i]--;
-            }
+            total += (map.get(i) * Coins[i]);
         }
         System.out.println(total);
     }
