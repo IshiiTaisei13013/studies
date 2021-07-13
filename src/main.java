@@ -7,9 +7,10 @@ public class main {
         //コインを追加
         Yen.AddCoin(1,4);
         Yen.AddCoin(5,3);
-        Yen.AddCoin(500,1);
-        Yen.AddCoin(100,2);
+        Yen.AddCoin(10,5);
         Yen.AddCoin(50,2);
+        Yen.AddCoin(100,2);
+        Yen.AddCoin(500,1);
 
         //コインケースを表示
         Yen.ShowCoins();
