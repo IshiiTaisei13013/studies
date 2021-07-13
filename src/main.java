@@ -4,9 +4,9 @@ public class main {
         CoinCase Yen = new CoinCase();
 
         Yen.AddCoin(1,4);
-        Yen.AddCoin(2,3);
-        Yen.AddCoin(5,1);
-        Yen.AddCoin(0,2);
+        Yen.AddCoin(5,3);
+        Yen.AddCoin(500,1);
+        Yen.AddCoin(100,2);
 
         Yen.ShowCoins();
 
