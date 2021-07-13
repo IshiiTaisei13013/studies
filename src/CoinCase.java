@@ -1,63 +1,57 @@
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 public class CoinCase {
 
-    private int[] Coins = new int[6];
-    private static final Map<Integer,Integer> map;
+    private Map<Integer,Integer> map;
 
-    //最初にコインを定義
-    static {
+    CoinCase() {
+        // Mapの初期化
         map = new HashMap<>();
-        map.put(0,1);
-        map.put(1,5);
-        map.put(2,10);
-        map.put(3,50);
-        map.put(4,100);
-        map.put(5,500);
+        map.put(1,0);
+        map.put(5,0);
+        map.put(10,0);
+        map.put(50,0);
+        map.put(100,0);
+        map.put(500,0);
     }
 
     //コインを追加する関数
     public void AddCoin(int order,int num){
-        Coins[order] += num;
+        map.put(order,map.get(order) + num);
     }
 
     //コインを表示する関数
     public void ShowCoins(){
-        for(int i=0;i<Coins.length;i++){
-            System.out.println(map.get(i) + ":" + Coins[i]);
-        }
+        Stream<Map.Entry<Integer,Integer>> stream = map.entrySet().stream();
+        stream.forEach(e -> System.out.println(e.getKey() + ":" + e.getValue()));
     }
 
-    //コイン全部を表示する関数
+    //コイン枚数の合計を表示する関数
     public void GetCount(){
-        int total = 0;
-        for (int i=0;i<Coins.length;i++){
-            total += Coins[i];
-        }
+        int sum = map.values().stream().reduce(0, Integer::sum);
+        System.out.println("コインの合計枚数：" + sum);
     }
 
     //ケースに入っているコインの種類と金額を表示
     public void GetDetail(){
-        int[] SubTotal = new int[6];
-
-        for(int i = 0;i<Coins.length;i++){
-            while(Coins[i] > 0){
-                SubTotal[i] += map.get(i);
-                Coins[i]--;
-            }
-            System.out.println(map.get(i) + ":" + SubTotal[i]);
-        }
+        Stream<Map.Entry<Integer,Integer>> stream = map.entrySet().stream();
+        stream.forEach(e -> System.out.println(e.getKey() + ":" + e.getKey() * e.getValue()));
     }
 
     //コインケース内の合計金額を表示
-    public void GetAmount(){
-        int total = 0;
-
-        for(int i = 0;i<Coins.length;i++){
-            total += (map.get(i) * Coins[i]);
-        }
-        System.out.println(total);
+    public void GetAmount() {
+//        int total = 0;
+//
+//        for(int i = 0;i<Coins.length;i++){
+//            while(Coins[i] > 0){
+//                total += map.get(i);
+//                Coins[i]--;
+//            }
+//        }
+//        System.out.println(total);
+//    }
     }
 }
