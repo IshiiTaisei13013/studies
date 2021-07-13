@@ -1,10 +1,13 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class CoinCase {
 
     private Map<Integer,Integer> map;
+//    public Map<Integer,Integer> map;
 
     CoinCase() {
         // Mapの初期化
@@ -44,15 +47,6 @@ public class CoinCase {
 
     //コインケース内の合計金額を表示
     public void GetAmount() {
-//        int total = 0;
-//
-//        for(int i = 0;i<Coins.length;i++){
-//            while(Coins[i] > 0){
-//                total += map.get(i);
-//                Coins[i]--;
-//            }
-//        }
-//        System.out.println(total);
-//    }
+        int sum = map.values().stream().reduce(0,(a,b) -> a + b);
     }
 }

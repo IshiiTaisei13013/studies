@@ -1,7 +1,7 @@
 public class main {
     public static void main(String... args){
 
-        //宣言
+        //インスタンス生成
         CoinCase Yen = new CoinCase();
 
         //コインを追加
@@ -23,7 +23,5 @@ public class main {
 
         //総額を表示
         Yen.GetAmount();
-
-
     }
 }
