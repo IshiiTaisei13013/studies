@@ -25,6 +25,7 @@ public class CoinCase {
 
     //コインを表示する関数
     public void ShowCoins(){
+        System.out.println("コインケースを表示します");
         Stream<Map.Entry<Integer,Integer>> stream = map.entrySet().stream();
         stream.forEach(e -> System.out.println(e.getKey() + ":" + e.getValue()));
     }
@@ -37,6 +38,7 @@ public class CoinCase {
 
     //ケースに入っているコインの種類と金額を表示
     public void GetDetail(){
+        System.out.println("コインの種類と金額を表示します");
         Stream<Map.Entry<Integer,Integer>> stream = map.entrySet().stream();
         stream.forEach(e -> System.out.println(e.getKey() + ":" + e.getKey() * e.getValue()));
     }
