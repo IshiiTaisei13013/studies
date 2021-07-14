@@ -21,6 +21,14 @@ public class WorldMap {
                 world[i][j] = WorldObj.ROAD;
             }
         }
+        //壁を囲む
+        for(int i = 0;i<size_y;i++){
+            for(int j = 0;j<size_x;j++){
+                if(i == 0 || j == 0) {
+                    world[i][j] = WorldObj.WALL;
+                }
+            }
+        }
     }
 
     //指定した座標のシンボルを上書きする
@@ -39,22 +47,23 @@ public class WorldMap {
             for(int j = 0; j<size_x; j++){
                 switch(world[i][j]){
                     case ROAD:
-                        System.out.println(" ");
+                        System.out.print(" ");
                         break;
                     case WALL:
-                        System.out.println("■");
+                        System.out.print("■");
                         break;
                     case PLAYER:
-                        System.out.println("@");
+                        System.out.print("@");
                         break;
                     case GOAL:
-                        System.out.println("G");
+                        System.out.print("G");
                         break;
                     default:
-                        System.out.println("E");
+                        System.out.print("E");
                         break;
                 }
             }
+            System.out.println();
         }
     }
 }
