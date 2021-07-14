@@ -20,22 +20,19 @@ public class Creature extends Actor{
 
     //コンストラクタ
     Creature (
-            int pos_y,int pos_x, //場所
-            String new_name,     //名前
-            int new_hp,int new_mp,int new_atk,int new_def,int new_spd //ステータス周り
+            int posY,int posX, //場所
+            String name,     //名前
+            int hp,int mp,int atk,int def,int spd //ステータス周り
     ){
-        super(pos_y,pos_x);
+        super(posY,posX);
 
         //各種初期化
-        name = new_name;
-        hp = new_hp;
-        mp = new_mp;
-        atk = new_atk;
-        def = new_def;
-        spd = new_spd;
-
-        //生まれたときは生きている
-        dead = false;
+        this.name = name;
+        this.hp = hp;
+        this.mp = mp;
+        this.atk = atk;
+        this.def = def;
+        this.spd = spd;
     }
 
     //クリーチャーの移動と当たり判定を行っている
@@ -43,53 +40,58 @@ public class Creature extends Actor{
         switch(com){
             case UP:
                 //壁があるか？
-                if(w.world[pos_y - 1][pos_x] != WorldMap.WorldObj.WALL){
+                if(w.world[posY - 1][posX] != WorldMap.WorldObj.WALL){
                     //自分がいた地点を道にする
-                    w.updateMap(pos_y,pos_x, WorldMap.WorldObj.ROAD);
+                    w.updateMap(posY,posX, WorldMap.WorldObj.ROAD);
 
-                    pos_y--;
+                    posY--;
 
                     //移動する
-                    w.updateMap(pos_y,pos_x, WorldMap.WorldObj.PLAYER);
+                    w.updateMap(posY,posX, WorldMap.WorldObj.PLAYER);
                 }
                 break;
             case DOWN:
                 //壁があるか？
-                if(w.world[pos_y + 1][pos_x] != WorldMap.WorldObj.WALL){
+                if(w.world[posY + 1][posX] != WorldMap.WorldObj.WALL){
                     //自分がいた地点を道にする
-                    w.updateMap(pos_y,pos_x, WorldMap.WorldObj.ROAD);
+                    w.updateMap(posY,posX, WorldMap.WorldObj.ROAD);
 
-                    pos_y++;
+                    posY++;
 
                     //移動する
-                    w.updateMap(pos_y,pos_x, WorldMap.WorldObj.PLAYER);
+                    w.updateMap(posY,posX, WorldMap.WorldObj.PLAYER);
                 }
                 break;
             case LEFT:
                 //壁があるか？
-                if(w.world[pos_y][pos_x - 1] != WorldMap.WorldObj.WALL){
+                if(w.world[posY][posX - 1] != WorldMap.WorldObj.WALL){
                     //自分がいた地点を道にする
-                    w.updateMap(pos_y,pos_x, WorldMap.WorldObj.ROAD);
+                    w.updateMap(posY,posX, WorldMap.WorldObj.ROAD);
 
-                    pos_x--;
+                    posX--;
 
                     //移動する
-                    w.updateMap(pos_y,pos_x, WorldMap.WorldObj.PLAYER);
+                    w.updateMap(posY,posX, WorldMap.WorldObj.PLAYER);
                 }
                 break;
             case RIGHT:
                 //壁があるか？
-                if(w.world[pos_y][pos_x + 1] != WorldMap.WorldObj.WALL){
+                if(w.world[posY][posX + 1] != WorldMap.WorldObj.WALL){
                     //自分がいた地点を道にする
-                    w.updateMap(pos_y,pos_x, WorldMap.WorldObj.ROAD);
+                    w.updateMap(posY,posX, WorldMap.WorldObj.ROAD);
 
-                    pos_x++;
+                    posX++;
 
                     //移動する
-                    w.updateMap(pos_y,pos_x, WorldMap.WorldObj.PLAYER);
+                    w.updateMap(posY,posX, WorldMap.WorldObj.PLAYER);
                 }
                 break;
         }
+    }
+
+    //生きているかどうか
+    public boolean isAlive(){
+        return hp > 0;
     }
 
 }

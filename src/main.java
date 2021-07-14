@@ -10,13 +10,13 @@ public class main {
         Scanner scanner = new Scanner(System.in);
 
         //最初だけプレイヤーを配置
-        map.updateMap(player.pos_y, player.pos_x, WorldMap.WorldObj.PLAYER);
+        map.updateMap(player.posY, player.posX, WorldMap.WorldObj.PLAYER);
 
         //マップ表示
         map.dispMap();
 
         //死ぬまで終わらない
-        while(player.dead == false){
+        while(player.isAlive()){
             //入力受け取り
             String input_text = scanner.nextLine();
 

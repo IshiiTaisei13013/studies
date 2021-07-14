@@ -37,8 +37,8 @@ public class WorldMap {
     }
 
     //指定した座標のシンボルを上書きする
-    public void updateMap(int pos_y,int pos_x,WorldObj obj){
-        world [pos_y][pos_x] = obj;
+    public void updateMap(int posY,int posX,WorldObj obj){
+        world [posY][posX] = obj;
     }
 
     //マップを表示する関数
