@@ -10,6 +10,7 @@ public class KeyBindings {
             case "d":
                 return Creature.MoveCommand.RIGHT;
             default:
+                //謎の入力はとりあえず上に動く
                 return Creature.MoveCommand.UP;
         }
     }
