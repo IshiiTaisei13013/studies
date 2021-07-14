@@ -24,7 +24,7 @@ public class WorldMap {
     }
 
     //マップを表示する関数
-    public void DispMap(){
+    public void dispMap(){
 
         //マップの大きさを取得
         int size_y = world.length;

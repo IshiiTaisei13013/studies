@@ -12,9 +12,8 @@ public class main {
 
         while(player.dead){
             String input_text = scanner.nextLine();
-
             player.move(KeyBindings.inputToCommand(input_text));
-
+            map.dispMap();
         }
 
     }
