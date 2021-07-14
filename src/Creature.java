@@ -38,14 +38,15 @@ public class Creature extends Actor{
         dead = false;
     }
 
+    //クリーチャーの移動と当たり判定を行っている
     public void move(MoveCommand com,WorldMap w){
         switch(com){
             case UP:
+                //壁があるか？
                 if(w.world[pos_y - 1][pos_x] != WorldMap.WorldObj.WALL){
                     //自分がいた地点を道にする
                     w.updateMap(pos_y,pos_x, WorldMap.WorldObj.ROAD);
 
-                    //自信に反映する
                     pos_y--;
 
                     //移動する
@@ -53,6 +54,7 @@ public class Creature extends Actor{
                 }
                 break;
             case DOWN:
+                //壁があるか？
                 if(w.world[pos_y + 1][pos_x] != WorldMap.WorldObj.WALL){
                     //自分がいた地点を道にする
                     w.updateMap(pos_y,pos_x, WorldMap.WorldObj.ROAD);
@@ -64,6 +66,7 @@ public class Creature extends Actor{
                 }
                 break;
             case LEFT:
+                //壁があるか？
                 if(w.world[pos_y][pos_x - 1] != WorldMap.WorldObj.WALL){
                     //自分がいた地点を道にする
                     w.updateMap(pos_y,pos_x, WorldMap.WorldObj.ROAD);
@@ -75,6 +78,7 @@ public class Creature extends Actor{
                 }
                 break;
             case RIGHT:
+                //壁があるか？
                 if(w.world[pos_y][pos_x + 1] != WorldMap.WorldObj.WALL){
                     //自分がいた地点を道にする
                     w.updateMap(pos_y,pos_x, WorldMap.WorldObj.ROAD);

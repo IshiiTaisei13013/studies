@@ -12,6 +12,7 @@ public class main {
         //マップ表示
         map.dispMap();
 
+        //死ぬまで終わらない
         while(player.dead == false){
             //入力受け取り
             String input_text = scanner.nextLine();
