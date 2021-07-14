@@ -9,6 +9,9 @@ public class main {
         Player player = new Player(3,3,name,10,10,5,5,4);
         Scanner scanner = new Scanner(System.in);
 
+        //最初だけプレイヤーを配置
+        map.updateMap(player.pos_y, player.pos_x, WorldMap.WorldObj.PLAYER);
+
         //マップ表示
         map.dispMap();
 
