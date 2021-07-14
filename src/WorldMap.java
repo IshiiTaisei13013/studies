@@ -2,6 +2,8 @@ import java.util.Arrays;
 
 public class WorldMap {
 
+    private int map_size_x;
+    private int map_size_y;
     public WorldObj[][] world;
 
     public static enum WorldObj{
@@ -13,6 +15,8 @@ public class WorldMap {
 
     //コンストラクタ
     WorldMap(int size_y,int size_x){
+        map_size_x = size_x;
+        map_size_y = size_y;
         world = new WorldObj[size_y][size_x];
 
         //全部を道にする。
@@ -24,7 +28,8 @@ public class WorldMap {
         //壁を囲む
         for(int i = 0;i<size_y;i++){
             for(int j = 0;j<size_x;j++){
-                if(i == 0 || j == 0) {
+                //画面端を壁にする
+                if(i == 0 || j == 0 || i == (size_y - 1) || j == (size_x - 1) ){
                     world[i][j] = WorldObj.WALL;
                 }
             }
@@ -38,13 +43,8 @@ public class WorldMap {
 
     //マップを表示する関数
     public void dispMap(){
-
-        //マップの大きさを取得
-        int size_y = world.length;
-        int size_x = world[0].length;
-
-        for(int i = 0; i<size_y; i++){
-            for(int j = 0; j<size_x; j++){
+        for(int i = 0; i<map_size_y; i++){
+            for(int j = 0; j<map_size_x; j++){
                 switch(world[i][j]){
                     case ROAD:
                         System.out.print(" ");

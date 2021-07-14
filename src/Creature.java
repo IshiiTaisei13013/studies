@@ -38,19 +38,52 @@ public class Creature extends Actor{
         dead = false;
     }
 
-    public void move(MoveCommand com){
+    public void move(MoveCommand com,WorldMap w){
         switch(com){
             case UP:
-                pos_y++;
+                if(w.world[pos_y - 1][pos_x] != WorldMap.WorldObj.WALL){
+                    //自分がいた地点を道にする
+                    w.updateMap(pos_y,pos_x, WorldMap.WorldObj.ROAD);
+
+                    //自信に反映する
+                    pos_y--;
+
+                    //移動する
+                    w.updateMap(pos_y,pos_x, WorldMap.WorldObj.PLAYER);
+                }
                 break;
             case DOWN:
-                pos_y--;
+                if(w.world[pos_y + 1][pos_x] != WorldMap.WorldObj.WALL){
+                    //自分がいた地点を道にする
+                    w.updateMap(pos_y,pos_x, WorldMap.WorldObj.ROAD);
+
+                    pos_y++;
+
+                    //移動する
+                    w.updateMap(pos_y,pos_x, WorldMap.WorldObj.PLAYER);
+                }
                 break;
             case LEFT:
-                pos_x++;
+                if(w.world[pos_y][pos_x - 1] != WorldMap.WorldObj.WALL){
+                    //自分がいた地点を道にする
+                    w.updateMap(pos_y,pos_x, WorldMap.WorldObj.ROAD);
+
+                    pos_x--;
+
+                    //移動する
+                    w.updateMap(pos_y,pos_x, WorldMap.WorldObj.PLAYER);
+                }
                 break;
             case RIGHT:
-                pos_x--;
+                if(w.world[pos_y][pos_x + 1] != WorldMap.WorldObj.WALL){
+                    //自分がいた地点を道にする
+                    w.updateMap(pos_y,pos_x, WorldMap.WorldObj.ROAD);
+
+                    pos_x++;
+
+                    //移動する
+                    w.updateMap(pos_y,pos_x, WorldMap.WorldObj.PLAYER);
+                }
                 break;
         }
     }
