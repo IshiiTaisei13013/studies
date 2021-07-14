@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class WorldMap {
 
-    WorldObj[][] world;
+    public WorldObj[][] world;
 
     public static enum WorldObj{
         ROAD,
@@ -21,6 +21,11 @@ public class WorldMap {
                 world[i][j] = WorldObj.ROAD;
             }
         }
+    }
+
+    //指定した座標のシンボルを上書きする
+    public void updateMap(int pos_y,int pos_x,WorldObj obj){
+        world [pos_y][pos_x] = obj;
     }
 
     //マップを表示する関数
