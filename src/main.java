@@ -17,7 +17,9 @@ public class main {
             properties.load(reader);
 
             String address = properties.getProperty("system.mail.address");
+            String errormessage = properties.getProperty("system.mail.errormessage");
 
+            System.out.println(address);
             System.out.println(address);
 
 
