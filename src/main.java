@@ -8,7 +8,7 @@ import java.util.Properties;
 
 public class main {
     public static void main(String args[]){
-        Path path = Paths.get("mail.propaties");
+        Path path = Paths.get("./mail.properties");
 
         try(BufferedReader reader = Files.newBufferedReader(
                 path, StandardCharsets.UTF_8
